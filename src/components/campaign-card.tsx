@@ -6,8 +6,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Users } from "lucide-react";
 import Link from "next/link";
 import { CardDropDown } from "./card-dropdown";
+type createCampaignCardT = {
+  cardHeading: String;
+};
 
-export default function CampaignCard() {
+export default function CampaignCard({ cardHeading }: createCampaignCardT) {
   return (
     <>
       <Link
@@ -17,7 +20,7 @@ export default function CampaignCard() {
         <div>
           <div className="flex justify-between items-center ">
             <div className="text-h4 font-semibold dark:group-hover:text-black mr-4">
-              Web Developer
+              {cardHeading}
             </div>
             <div className="flex gap-2 ">
               <Star className="w-5 h-5 dark:group-hover:stroke-black"></Star>

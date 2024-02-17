@@ -1,5 +1,7 @@
 import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import connectDB from "./db-connect";
+import User from "@/models/user-model";
 export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
@@ -10,7 +12,22 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
-      console.log("ok gamay we are here", user, account, profile, credentials);
+      console.log("ok gamay we are here", user.name);
+      await connectDB();
+      const userName = user.name;
+      const checkUserName = user.name;
+      const userEmail = user.email;
+      const res = await User.findOne({ "userInfo.userName": checkUserName });
+
+      if (!res) {
+        const newUserRes = await User.create({
+          userInfo: { userName, userEmail },
+          userProjects: [],
+        });
+        console.log(newUserRes, "creating new user");
+        return true;
+      }
+
       return true;
     },
     async redirect({ url, baseUrl }) {

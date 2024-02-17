@@ -18,26 +18,37 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { AlertDialogFooter } from "@/components/ui/alert-dialog";
-
+import createProject from "@/actions/create-campaign-action";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-
+import { useRef } from "react";
 export default function CreateCampaignSpecifications({
   className,
 }: React.HTMLAttributes<HTMLDivElement>) {
+  const formRef = useRef<HTMLFormElement>(null);
+
   const changeCreateCampaignScreen = useTogglingStore(
     (state) => state.changeCreateCampaignScreen
   );
 
   const [startingDate, setStartingDate] = React.useState<Date>();
   const [endingDate, setEndingDate] = React.useState<Date>();
+  const handleProjectCreation = async (formData: any) => {
+    formRef.current?.reset();
+
+    const res = await createProject(formData);
+  };
 
   return (
     <>
-      <div className="flex flex-col justify-between  TABLET:justify-start ">
+      <form
+        ref={formRef}
+        action={handleProjectCreation}
+        className="flex flex-col justify-between  TABLET:justify-start "
+      >
         <div>
           <div className="text-h3 font-semibold text-foreground">
             Create Project
@@ -55,6 +66,7 @@ export default function CreateCampaignSpecifications({
             type="text"
             id="email"
             placeholder="Title of your Project"
+            name="project"
             required
           />
           <div className="text-body text-muted-foreground opacity-70">
@@ -80,11 +92,11 @@ export default function CreateCampaignSpecifications({
           >
             cancel
           </Button>
-          <Button variant="default" className="text-background">
+          <Button type="submit" variant="default" className="text-background">
             create
           </Button>
         </AlertDialogFooter>
-      </div>
+      </form>
     </>
   );
 }
