@@ -9,6 +9,7 @@ const userSchema = new Schema({
   userProjects: [
     {
       projectName: String,
+
     },
   ],
 });

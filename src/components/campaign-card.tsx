@@ -4,13 +4,30 @@ import { Button } from "./ui/button";
 import { Check } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Users } from "lucide-react";
+import User from "@/models/user-model";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
+import { authOptions } from "@/lib/next-auth-options";
 import { CardDropDown } from "./card-dropdown";
+import connectDB from "@/lib/db-connect";
 type createCampaignCardT = {
   cardHeading: String;
 };
 
-export default function CampaignCard({ cardHeading }: createCampaignCardT) {
+
+
+export default async function CampaignCard({ cardHeading }: createCampaignCardT) {
+ const session = await getServerSession(authOptions);
+
+ await connectDB();
+ const projects = await User.findOne(
+   {
+     "userInfo.userEmail": session?.user?.email,
+   },
+   { userProjects: 1, _id: 0 }
+ );
+
+ console.log("user project in home ", projects);
   return (
     <>
       <Link

@@ -8,22 +8,31 @@ import {
 
 type DrawerDialogProps = {
   children: React.ReactNode;
+  specialScreen?: string;
 };
 import { useTogglingStore } from "@/store/toggle-store";
 import giveCampaignScreen from "@/lib/give-campaign-screen";
-
-export default function CreateCampaignDialog({ children }: DrawerDialogProps) {
+import CreateDocumentModal from "./create-document-modal";
+export default function CreateCampaignDialog({
+  children,
+  specialScreen,
+}: DrawerDialogProps) {
   let isMobileModal = false;
   const createCampaignScreen = useTogglingStore(
     (state) => state.createCampaignScreen
   );
-  const currentCampaignScreen = giveCampaignScreen(createCampaignScreen);
+  let currentCampaignScreen = giveCampaignScreen(createCampaignScreen);
   if (
     createCampaignScreen === "campaignSpecifications" ||
     createCampaignScreen !== "jobSpecifications"
   ) {
     isMobileModal = true;
   }
+
+  if (specialScreen === "createDocumentScreen") {
+    currentCampaignScreen = <CreateDocumentModal></CreateDocumentModal>;
+  }
+
   return (
     <>
       <div className="">

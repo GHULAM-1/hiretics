@@ -1,5 +1,6 @@
 import { create } from "zustand";
 interface TogglingStoreI {
+  showCreateDocumentModal: boolean;
   topSectionDetails: {
     mainHeading?: string;
     subHeading?: string;
@@ -21,8 +22,12 @@ interface TogglingStoreI {
   changeCampaignCancelFrom: (
     newCampaigncamcelFrom: "campaignSpecifications" | "jobSpecifications"
   ) => void;
+
+  toggleShowCreateDocument: () => void;
 }
+
 export const useTogglingStore = create<TogglingStoreI>()((set) => ({
+  showCreateDocumentModal: false,
   createCampaignScreen: "campaignSpecifications",
   campaignCancelFrom: "campaignSpecifications",
   topSectionDetails: {
@@ -30,10 +35,13 @@ export const useTogglingStore = create<TogglingStoreI>()((set) => ({
     subHeading: "Welcome",
   },
 
-  
-
   changeTopSectionDetails: (newTopSectionDetails) =>
     set(() => ({ topSectionDetails: newTopSectionDetails })),
+
+  toggleShowCreateDocument: () =>
+    set((state: any) => ({
+      showCreateDocumentModal: !state.showCreateDocumentModal,
+    })),
 
   changeCreateCampaignScreen: (newCreateCampaignScreen) =>
     set(() => ({ createCampaignScreen: newCreateCampaignScreen })),
