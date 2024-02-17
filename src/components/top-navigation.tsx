@@ -1,11 +1,17 @@
 import TopbarCompact from "./topbar-compact";
 import TopbarSpaced from "./topbar-spaced";
-
-export default function TopNavigation() {
+type TopSectionProps = {
+  mainHeading: string;
+  subHeading: string;
+};
+export default function TopNavigation({
+  mainHeading,
+  subHeading,
+}: TopSectionProps) {
   return (
     <>
-      <TopbarCompact className="flex justify-between SMALL_LAPTOP:hidden mx-6 TABLET:mx-8" />
-      <TopbarSpaced className="hidden SMALL_LAPTOP:flex flex-col  mt-5 mr-5 ml-5 w-full" />
+      <TopbarCompact mainHeading={mainHeading} subHeading={subHeading} />
+      <TopbarSpaced subHeading={subHeading} mainHeading={mainHeading} />
     </>
   );
 }

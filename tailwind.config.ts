@@ -15,6 +15,7 @@ const config = {
       TABLET: "500px",
       LARGE_TABLET: "650px",
       SMALL_LAPTOP: "1140px",
+      MEDIUM_LAPTOP: "1260px",
       LAPTOP: "1440px",
     },
     container: {
@@ -45,6 +46,7 @@ const config = {
           DEFAULT: "var(--primary)",
           foreground: "var(--primary-foreground)",
         },
+        tertiaryForeground: "var(--tertiary-foreground)",
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "var(--secondary-foreground)",

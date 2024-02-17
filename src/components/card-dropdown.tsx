@@ -1,6 +1,8 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Pencil, Link2, Star, Trash } from "lucide-react";
+import { Pencil, Link2, Star } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
+import { Button } from "./ui/button";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,23 +12,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { MoreVertical } from "lucide-react";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
 import { DeleteDialog } from "./delete-dialog";
 
 export function CardDropDown() {
+  const { toast } = useToast();
+
   const handleDeleteClick = (e: any) => {
     e.preventDefault();
   };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -46,7 +40,15 @@ export function CardDropDown() {
             edit campaign
           </DropdownMenuItem>
 
-          <DropdownMenuItem className="flex items-center gap-3 cursor-pointer">
+          <DropdownMenuItem
+            className="flex items-center gap-3 cursor-pointer"
+            onClick={() => {
+              toast({
+                duration: 2000,
+                title: "Link copied to clipboard",
+              });
+            }}
+          >
             <Link2 className="h-4 w-4"></Link2>
             copy form link
           </DropdownMenuItem>

@@ -11,7 +11,7 @@ export default function CampaignCard() {
   return (
     <>
       <Link
-        href="/application"
+        href="/application/web-developer"
         className="p-5 max-w-[328px] h-[210px]  w-[328px] border border-input rounded-md shadow-md flex flex-col justify-between hover:bg-primaryHoverLight group"
       >
         <div>
@@ -51,8 +51,8 @@ export default function CampaignCard() {
           </div>
 
           <div className="flex justify-center items-center gap-1">
-            <Users className="dark:group-hover:stroke-black"></Users>
-            <div className="text-primary text-h3 font-semibold">141</div>
+            {/* <Users className="dark:group-hover:stroke-black"></Users> */}
+            {/* <div className="text-primary text-h3 font-semibold">141</div> */}
           </div>
         </div>
       </Link>
