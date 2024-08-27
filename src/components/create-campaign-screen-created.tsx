@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
+import CreateCampaignAnimation from "./create-campaign-animation";
 
-export default function CreateCampaignScreenThree() {
+export default function CreateCampaignCreated() {
   return (
     <>
       <div className="flex justify-center items-center flex-col">
@@ -8,7 +9,7 @@ export default function CreateCampaignScreenThree() {
           <Check className="stroke-foreground " strokeWidth={2}></Check>
         </div>
         <div>New Campaign Created</div>
-        <div>that cool animation</div>
+        <CreateCampaignAnimation stepNumber={3} />
       </div>
     </>
   );

@@ -9,12 +9,19 @@ import { Settings } from "lucide-react";
 import { ArchiveRestore } from "lucide-react";
 import { LogOut } from "lucide-react";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 type SidebarExpandedProps = HTMLAttributes<HTMLDivElement>;
 
 export default function SidebarExpanded(props: SidebarExpandedProps) {
+  const router = useRouter();
+
   const pathname = usePathname();
   const isActive = (path: any) => path === pathname;
+  function handleLogout() {
+    signOut({ callbackUrl: "/" });
+  }
   return (
     <>
       <div {...props}>
@@ -134,6 +141,7 @@ export default function SidebarExpanded(props: SidebarExpandedProps) {
 
         <div className="flex flex-col w-full  ">
           <Button
+            onClick={handleLogout}
             className="w-full ml-3 group flex items-center justify-start gap-2 border-none hover:bg-primaryHoverStrong"
             variant="outline"
           >

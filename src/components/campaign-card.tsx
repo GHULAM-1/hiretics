@@ -11,7 +11,7 @@ export default function CampaignCard() {
   return (
     <>
       <Link
-        href="/application"
+        href="/application/web-developer"
         className="p-5 max-w-[328px] h-[210px]  w-[328px] border border-input rounded-md shadow-md flex flex-col justify-between hover:bg-primaryHoverLight group"
       >
         <div>

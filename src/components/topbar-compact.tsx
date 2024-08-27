@@ -9,12 +9,18 @@ import { ThemeSwitchButton } from "./ui/theme-switch-button";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-type TopbarCompactProps = HTMLAttributes<HTMLDivElement>;
-export default function TopbarCompact(props: TopbarCompactProps) {
+type TopbarCompactProps = HTMLAttributes<HTMLDivElement> & {
+  mainHeading: string;
+  subHeading: string;
+};
+export default function TopbarCompact({
+  mainHeading,
+  subHeading,
+}: TopbarCompactProps) {
   return (
     <>
-      <div className="SMALL_MOBILE:mt-2 mt-6">
-        <div {...props}>
+      <div className="SMALL_MOBILE:mt-2 mt-6 ">
+        <div className="flex justify-between SMALL_LAPTOP:hidden mx-6 TABLET:mx-8">
           <div className="flex justify-start items-center gap-2">
             <Menu className="h-8 w-8"></Menu>
             <div className=" hidden SMALL_MOBILE:flex ">
@@ -54,10 +60,10 @@ export default function TopbarCompact(props: TopbarCompactProps) {
         <div className="flex justify-between items-center SMALL_LAPTOP:hidden mx-6 TABLET:mx-8 mb-8 mt-6 ">
           <div className="flex flex-col leading-6  SMALL_MOBILE:leading-5 TABLET:leading-7 ">
             <div className="text-h4 TABLET:text-h2 font-semibold mr-4">
-              Your Campaigns
+              {mainHeading}
             </div>
             <div className="SMALL_MOBILE:ml-1 ml-1 text-body TABLET:text-large text-secondary-foreground">
-              welcome, Moiz
+              {subHeading}, Moiz
             </div>
           </div>
 
