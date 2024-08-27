@@ -1,5 +1,10 @@
 import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+<<<<<<< HEAD
+=======
+import connectDB from "./db-connect";
+import User from "@/models/user-model";
+>>>>>>> f8a5ab65a7f7654d04355130d860e93c58fee6f8
 export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
@@ -10,7 +15,26 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
+<<<<<<< HEAD
       console.log("ok gamay we are here", user, account, profile, credentials);
+=======
+      console.log("ok gamay we are here", user.name);
+      await connectDB();
+      const userName = user.name;
+      const checkUserName = user.name;
+      const userEmail = user.email;
+      const res = await User.findOne({ "userInfo.userName": checkUserName });
+
+      if (!res) {
+        const newUserRes = await User.create({
+          userInfo: { userName, userEmail },
+          userProjects: [],
+        });
+        console.log(newUserRes, "creating new user");
+        return true;
+      }
+
+>>>>>>> f8a5ab65a7f7654d04355130d860e93c58fee6f8
       return true;
     },
     async redirect({ url, baseUrl }) {

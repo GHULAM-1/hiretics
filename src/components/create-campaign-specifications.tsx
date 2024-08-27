@@ -18,22 +18,36 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { AlertDialogFooter } from "@/components/ui/alert-dialog";
+<<<<<<< HEAD
 
+=======
+import createProject from "@/actions/create-campaign-action";
+>>>>>>> f8a5ab65a7f7654d04355130d860e93c58fee6f8
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+<<<<<<< HEAD
 
 export default function CreateCampaignSpecifications({
   className,
 }: React.HTMLAttributes<HTMLDivElement>) {
+=======
+import { useRef } from "react";
+export default function CreateCampaignSpecifications({
+  className,
+}: React.HTMLAttributes<HTMLDivElement>) {
+  const formRef = useRef<HTMLFormElement>(null);
+
+>>>>>>> f8a5ab65a7f7654d04355130d860e93c58fee6f8
   const changeCreateCampaignScreen = useTogglingStore(
     (state) => state.changeCreateCampaignScreen
   );
 
   const [startingDate, setStartingDate] = React.useState<Date>();
   const [endingDate, setEndingDate] = React.useState<Date>();
+<<<<<<< HEAD
 
   return (
     <>
@@ -44,6 +58,27 @@ export default function CreateCampaignSpecifications({
           </div>
           <div className="text-p text font-medium text-secondary-foreground">
             Campaign Specifics
+=======
+  const handleProjectCreation = async (formData: any) => {
+    formRef.current?.reset();
+
+    const res = await createProject(formData);
+  };
+
+  return (
+    <>
+      <form
+        ref={formRef}
+        action={handleProjectCreation}
+        className="flex flex-col justify-between  TABLET:justify-start "
+      >
+        <div>
+          <div className="text-h3 font-semibold text-foreground">
+            Create Project
+          </div>
+          <div className="text-p text font-medium text-secondary-foreground">
+            Project Specifics
+>>>>>>> f8a5ab65a7f7654d04355130d860e93c58fee6f8
           </div>
         </div>
 
@@ -54,22 +89,35 @@ export default function CreateCampaignSpecifications({
           <Input
             type="text"
             id="email"
+<<<<<<< HEAD
             placeholder="Title of your Campaign"
             required
           />
           <div className="text-body text-muted-foreground opacity-70">
             This will be shown as the campaign heading to the applicants.
+=======
+            placeholder="Title of your Project"
+            name="project"
+            required
+          />
+          <div className="text-body text-muted-foreground opacity-70">
+            This will be shown as the project heading to the collaborators.
+>>>>>>> f8a5ab65a7f7654d04355130d860e93c58fee6f8
           </div>
         </div>
 
         <div className="flex flex-col justify-start gap-2 mb-6">
+<<<<<<< HEAD
           <div className="text-body font-semibold">campaign duration</div>
+=======
+>>>>>>> f8a5ab65a7f7654d04355130d860e93c58fee6f8
           <div
             className={cn(
               "flex gap-2 SMALL_LAPTOP:flex-row flex-col w-[50%] ",
               className
             )}
           >
+<<<<<<< HEAD
             <Popover>
               <PopoverTrigger asChild>
                 <Button
@@ -173,6 +221,12 @@ export default function CreateCampaignSpecifications({
         <CreateCampaignAnimation stepNumber={1} />
         {/* <div>error signal</div> */}
 
+=======
+            {/* end */}
+          </div>
+        </div>
+
+>>>>>>> f8a5ab65a7f7654d04355130d860e93c58fee6f8
         <AlertDialogFooter className=" w-full flex-row flex justify-between mt-6    ">
           <Button
             variant="outline"
@@ -180,6 +234,7 @@ export default function CreateCampaignSpecifications({
           >
             cancel
           </Button>
+<<<<<<< HEAD
           <Button
             variant="default"
             className="text-background"
@@ -189,6 +244,13 @@ export default function CreateCampaignSpecifications({
           </Button>
         </AlertDialogFooter>
       </div>
+=======
+          <Button type="submit" variant="default" className="text-background">
+            create
+          </Button>
+        </AlertDialogFooter>
+      </form>
+>>>>>>> f8a5ab65a7f7654d04355130d860e93c58fee6f8
     </>
   );
 }

@@ -4,10 +4,30 @@ import { Button } from "./ui/button";
 import { Check } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Users } from "lucide-react";
+import User from "@/models/user-model";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
+import { authOptions } from "@/lib/next-auth-options";
 import { CardDropDown } from "./card-dropdown";
+import connectDB from "@/lib/db-connect";
+type createCampaignCardT = {
+  cardHeading: String;
+};
 
-export default function CampaignCard() {
+
+
+export default async function CampaignCard({ cardHeading }: createCampaignCardT) {
+ const session = await getServerSession(authOptions);
+
+ await connectDB();
+ const projects = await User.findOne(
+   {
+     "userInfo.userEmail": session?.user?.email,
+   },
+   { userProjects: 1, _id: 0 }
+ );
+
+ console.log("user project in home ", projects);
   return (
     <>
       <Link
@@ -17,7 +37,7 @@ export default function CampaignCard() {
         <div>
           <div className="flex justify-between items-center ">
             <div className="text-h4 font-semibold dark:group-hover:text-black mr-4">
-              Web Developer
+              {cardHeading}
             </div>
             <div className="flex gap-2 ">
               <Star className="w-5 h-5 dark:group-hover:stroke-black"></Star>
@@ -51,8 +71,8 @@ export default function CampaignCard() {
           </div>
 
           <div className="flex justify-center items-center gap-1">
-            <Users className="dark:group-hover:stroke-black"></Users>
-            <div className="text-primary text-h3 font-semibold">141</div>
+            {/* <Users className="dark:group-hover:stroke-black"></Users> */}
+            {/* <div className="text-primary text-h3 font-semibold">141</div> */}
           </div>
         </div>
       </Link>

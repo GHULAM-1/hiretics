@@ -7,6 +7,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 export default function Login() {
+  const isDevelopment = process.env.NODE_ENV === "development";
+  const callbackUrl = isDevelopment
+    ? "http://localhost:3000/application"
+    : `${process.env.NEXT_PUBLIC_VERCEL_URL}/application`;
   return (
     <>
       <div>
@@ -30,7 +34,13 @@ export default function Login() {
         </div>
         <div className="h-[93vh]  w-screen flex ">
           <div className="h-full w-1/2 flex justify-center items-center bg-primaryHoverStrong ">
+<<<<<<< HEAD
             <div className="text-[8rem] text-primary font-bold">Hiretics</div>
+=======
+            <div className="text-[5rem] text-primary font-bold">
+              Collaboro Docs
+            </div>
+>>>>>>> f8a5ab65a7f7654d04355130d860e93c58fee6f8
           </div>
           <div className="w-1/2 flex  justify-center items-center bg-black text-white flex-col">
             <div className="w-[25vw] flex flex-col justify-center items-center ">
@@ -80,6 +90,10 @@ export default function Login() {
                 </Button>
 
                 <Button
+<<<<<<< HEAD
+=======
+                  onClick={() => signIn("google", { callbackUrl })}
+>>>>>>> f8a5ab65a7f7654d04355130d860e93c58fee6f8
                   className="bg-transparent w-full py-6 font-semibold text-lg "
                   variant="outline"
                 >

@@ -33,7 +33,11 @@ export default function CreateCampaignLostAlert() {
         </div>
         <div>
           This action cannot be undone. This action will result in deletion of
+<<<<<<< HEAD
           this campaign creation process.
+=======
+          this project creation process.
+>>>>>>> f8a5ab65a7f7654d04355130d860e93c58fee6f8
         </div>
 
         <AlertDialogFooter className="w-full flex gap-1 TABLET:gap-4 items-end justify-end  TABLET:flex-row">

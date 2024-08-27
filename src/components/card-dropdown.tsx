@@ -37,7 +37,7 @@ export function CardDropDown() {
         <DropdownMenuGroup>
           <DropdownMenuItem className="flex items-center gap-3 cursor-pointer ">
             <Pencil className="h-4 w-4"></Pencil>
-            edit campaign
+            edit project
           </DropdownMenuItem>
 
           <DropdownMenuItem
@@ -50,7 +50,7 @@ export function CardDropDown() {
             }}
           >
             <Link2 className="h-4 w-4"></Link2>
-            copy form link
+            mark as done
           </DropdownMenuItem>
           <DropdownMenuItem className="flex items-center gap-3 cursor-pointer ">
             <Star className="h-4 w-4"></Star>

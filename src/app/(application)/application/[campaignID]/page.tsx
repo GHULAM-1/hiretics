@@ -12,6 +12,7 @@ export default function Campaign({ params }: { params: any }) {
   return (
     <>
       <div className="w-full overflow-x-hidden overflow-y-hidden ">
+<<<<<<< HEAD
         <TopNavigation
           mainHeading="Looking for a Web Developer"
           subHeading="BitProwler"
@@ -25,11 +26,16 @@ export default function Campaign({ params }: { params: any }) {
           </Link>
           {/* <ChevronRight className="w-5 stroke-primary pt-1" /> */}
         </div>
+=======
+        <TopNavigation mainHeading="your Documents" subHeading="Explore" />
+
+>>>>>>> f8a5ab65a7f7654d04355130d860e93c58fee6f8
         <div className="h- mr-5 ml-5   overflow-y-auto">
           <div className="mt-5">
             <CampaignActionBar />
           </div>
           <div className="w-full flex border border-input mt-4 mb-5"></div>
+<<<<<<< HEAD
           <div className="flex gap-6 w-full">
             <div className="flex flex-col gap-6 w-full">
               <div className="flex gap-6 w-full">
@@ -42,6 +48,8 @@ export default function Campaign({ params }: { params: any }) {
               <BestCandidatesCard />
             </div>
           </div>
+=======
+>>>>>>> f8a5ab65a7f7654d04355130d860e93c58fee6f8
         </div>
       </div>
     </>

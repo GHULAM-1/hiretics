@@ -26,7 +26,9 @@ export default function SidebarExpanded(props: SidebarExpandedProps) {
     <>
       <div {...props}>
         <div className="flex w-full flex-col justify-start ">
-          <HireticsLogo fontSize="3rem">Hiretics</HireticsLogo>
+          <div className="font-bold text-primary flex justify-center text-[2.5rem] items-center text-center">
+            C-Docs
+          </div>
 
           <div className="border border-input w-full mb-8"></div>
           <div className="flex flex-col gap-4 ">
@@ -78,7 +80,7 @@ export default function SidebarExpanded(props: SidebarExpandedProps) {
                       : "text-secondary-foreground"
                   }`}
                 >
-                  Favorites
+                  Starred
                 </span>
               </Button>
             </Link>

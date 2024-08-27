@@ -19,8 +19,13 @@ export default async function TopbarSpaced({
   if (session?.user !== null && session?.user !== undefined) {
     return (
       <>
+<<<<<<< HEAD
         <div className="hidden SMALL_LAPTOP:flex flex-col  mt-5 mr-5 ml-5  ">
           <div className="TOP flex justify-between py-8  items-center ">
+=======
+        <div className="SMALL_LAPTOP:flex hidden  flex-col  mt-5 mr-5 ml-5  ">
+          <div className="TOP hidden justify-between SMALL_LAPTOP:flex py-8  items-center ">
+>>>>>>> f8a5ab65a7f7654d04355130d860e93c58fee6f8
             <div className="LEFT flex flex-col justify-start">
               <div className="text-h2 font-extrabold">{mainHeading}</div>
               <div className="ml-2 text-large text-secondary-foreground">
