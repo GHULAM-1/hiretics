@@ -17,7 +17,7 @@ export async function connect() {
     console.log(error);
   }
 }
-=======
+
 
 const connectDB = async () => {
   try {
