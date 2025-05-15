@@ -17,8 +17,7 @@
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-select": "^2.0.0",
-<<<<<<< HEAD
-    "@radix-ui/react-slot": "^1.0.2",
+  "@radix-ui/react-slot": "^1.0.2",
 =======
   "@radix-ui/react-slot": "^1.0.2",
 >>>>>>> f8a5ab65a7f7654d04355130d860e93c58fee6f8
@@ -28,11 +27,7 @@
     "date-fns": "^3.2.0",
     "lucide-react": "^0.309.0",
     "mongodb": "^6.3.0",
-<<<<<<< HEAD
-    "mongoose": "^8.1.0",
-=======
     "mongoose": "^8.1.3",
->>>>>>> f8a5ab65a7f7654d04355130d860e93c58fee6f8
     "next": "14.0.4",
     "next-auth": "^4.24.5",
     "next-themes": "^0.2.1",
